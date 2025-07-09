@@ -1,0 +1,168 @@
+@import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Inria+Serif:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Paprika&display=swap");
+
+/* === Estilos base === */
+:root {
+  --color-text-dark: #111827;
+  --color-text-light: #213547;
+  --color-bg-dark: #242424;
+  --color-bg-light: #ffffff;
+  --color-primary: #747bff;
+  --color-primary-hover: #535bf2;
+  --color-secondary: #253D57;
+  --font-base: 'Poppins', sans-serif;
+  --font-serif: 'Inria Serif', serif;
+  --font-cursive: 'Paprika', cursive;
+  --bg-back-btn: #383841;
+
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: var(--color-bg-dark);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+   margin: 0;
+  padding: 0;
+}
+
+body {
+    height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  font-family: var(--font-base);
+  background-color: var(--color-bg-light);
+  color: var(--color-text-dark);
+}
+
+#app {
+
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+/* === Tipografía === */
+h1:not(.ignore) {
+  font-family: var(--font-base);
+  font-size: 3.75rem; /* 6xl */
+  font-weight: 800;
+}
+
+h2 {
+  font-family: var(--font-serif);
+  font-size: 3rem; /* 5xl */
+  font-weight: 700;
+}
+
+h3 {
+  font-family: var(--font-cursive);
+  font-size: 3rem;
+}
+
+h4 {
+  font-family: var(--font-cursive);
+  font-size: 2rem;
+  line-height: 1.625;
+}
+
+h6 {
+  font-family: var(--font-cursive);
+  font-weight: bold;
+  color: var(--color-primary);
+  line-height: 2rem;
+}
+
+p, span {
+  font-family: var(--font-base);
+  font-size: 0.95rem;
+}
+
+/* === Botones === */
+button:not(.tab-button) {
+  background: #213547;
+  font-family: var(--font-base);
+  border-radius: 8px;
+  border: 1px solid #747bff;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  color: #747bff;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:not(.tab-button):hover {
+  border-color: var(--color-primary);
+}
+button:not(.tab-button):focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+/* === Utilidades === */
+.btn {
+  padding: 0.5rem 2.25rem;
+  border: 2px solid #000;
+  border-radius: 0.375rem;
+  border-bottom-right-radius: 1.5rem;
+  font-weight: 500;
+}
+
+.title {
+  font-size: 1.875rem;
+}
+
+.subtitle {
+  color: #d1d5db;
+}
+
+.card {
+  padding: 2em;
+}
+
+a {
+  font-weight: 500;
+  color: var(--color-primary);
+  text-decoration: inherit;
+}
+a:hover {
+  color: var(--color-primary-hover);
+}
+
+/* === Swiper === */
+.swiper-pagination-bullet {
+  background-color: #75560c !important;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 0.5rem;
+  opacity: 1 !important;
+}
+.swiper-pagination-bullet-active {
+  background-color: #d5f0aa !important;
+  opacity: 1 !important;
+}
+
+/* === Modo claro === */
+@media (prefers-color-scheme: light) {
+  :root {
+    color: var(--color-text-light);
+    background-color: var(--color-bg-light);
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button:not(.tab-button) {
+    background-color: #213547;
+    border: #747bff solid 1px;
+  }
+}
