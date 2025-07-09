@@ -1,5 +1,5 @@
 <template>
-  <section class="min-h-fit bg-gray-800" id="skills">
+  <div class="min-h-fit bg-gray-800" id="skills">
     <div class="px-5 py-14 md:container">
       <h2 class="title text-indigo-300" data-aos="fade-down">
         Skills
@@ -33,13 +33,9 @@
         </div>
       </div>
     </div>
-  </section>
+</div>
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import { ArrowUpRightIcon } from '@heroicons/vue/24/solid'
 import { skillsItems } from '../data/index'
-
-
 </script>

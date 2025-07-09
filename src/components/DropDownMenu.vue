@@ -131,18 +131,54 @@
 </template>
 
 <script setup lang="ts">
-import { ref, Directive } from 'vue'
+import { ref, Directive, nextTick } from 'vue'
 import avatar from '../assets/img/avatar2.png'
-// 
 
 const isVisible = ref(false)
+const dropdown = ref<HTMLElement | null>(null)
+
+let focusedIndex = -1
 
 function toggleVisibility() {
   isVisible.value = !isVisible.value
+  if (isVisible.value) {
+    focusedIndex = -1
+    nextTick(() => {
+ 
+    })
+  }
 }
 
 function hideDropdown() {
   isVisible.value = false
+  focusedIndex = -1
+}
+
+function getFocusableItems() {
+  if (!dropdown.value) return []
+  return Array.from(dropdown.value.querySelectorAll('a'))
+}
+
+function focusNext(loop: boolean) {
+  const items = getFocusableItems()
+  if (items.length === 0) return
+
+  focusedIndex++
+  if (focusedIndex >= items.length) {
+    focusedIndex = loop ? 0 : items.length - 1
+  }
+  items[focusedIndex].focus()
+}
+
+function focusPrevious(loop: boolean) {
+  const items = getFocusableItems()
+  if (items.length === 0) return
+
+  focusedIndex--
+  if (focusedIndex < 0) {
+    focusedIndex = loop ? items.length - 1 : 0
+  }
+  items[focusedIndex].focus()
 }
 
 // Directiva local para detectar clic fuera
@@ -161,13 +197,13 @@ const clickOutside: Directive = {
   }
 }
 
-// Registrar la directiva para el template
 defineExpose({
   directives: {
     clickOutside
   }
 })
 </script>
+
 
 <style scoped>
 .dropdown-fade-enter-active,

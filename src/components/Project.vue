@@ -18,7 +18,7 @@
             class="bg-gray-700 max-w-[45vw] min-w-[22rem]   rounded-3xl text-indigo-300"
           />
           <Swiper
-            :pagination="{clickable: true}"
+  :pagination="{ clickable: true } as any"
             :space-between="20"
             :modules="[Pagination]"
             class="rounded-3xl pb-16 max-w-xs shadow-lg shadow-indigo-300 self-start"
@@ -49,6 +49,7 @@ import {Pagination} from "swiper/modules"
 import { Swiper, SwiperSlide } from "swiper/vue";
 // @ts-ignore
 import ProjectsSVG from "../assets/svg/projects.svg";
+
 
 import "swiper/css";
 import "swiper/css/pagination";

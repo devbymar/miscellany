@@ -190,32 +190,41 @@
 </template>
 
 <script lang="ts" setup>
-import ChatSVG from "../assets/svg/chat.svg"
 import { ref, onMounted } from 'vue'
 
+// Estado para controlar la visibilidad del menú
 const isVisible = ref(false)
+
+// Referencia a los items del menú para navegación con teclado
 const menuItems = ref<NodeListOf<HTMLAnchorElement> | null>(null)
+
+// Índice del item actualmente enfocado
 const focusedIndex = ref(0)
 
+// Al montar el componente, seleccionamos todos los enlaces dentro del menú para manejarlos
 onMounted(() => {
   menuItems.value = document.querySelectorAll('.mega-menu a')
 })
 
+// Mostrar el menú (on mouseover o focus)
 function showMenu() {
   isVisible.value = true
 }
 
+// Ocultar el menú y resetear el foco
 function hideMenu() {
   isVisible.value = false
   focusedIndex.value = 0
 }
 
+// Cuando el usuario presiona flechas arriba/abajo en el enlace "Features", empezamos la navegación por teclado
 function startArrowKeys() {
   if (menuItems.value && menuItems.value.length > 0) {
     menuItems.value[0].focus()
   }
 }
 
+// Enfocar el ítem anterior (si existe), con control si la llamada es por flechas
 function focusPrevious(isArrowKey: boolean) {
   if (!menuItems.value) return
 
@@ -226,6 +235,7 @@ function focusPrevious(isArrowKey: boolean) {
   }
 }
 
+// Enfocar el ítem siguiente (si existe), con control si la llamada es por flechas
 function focusNext(isArrowKey: boolean) {
   if (!menuItems.value) return
 
@@ -236,12 +246,14 @@ function focusNext(isArrowKey: boolean) {
   }
 }
 
+// Función para poner foco en el item actual basado en focusedIndex
 function focusItem() {
   if (menuItems.value) {
     menuItems.value[focusedIndex.value].focus()
   }
 }
 </script>
+
 
 <style scoped>
   .mega-menu-fade-enter-active, .mega-menu-fade-leave-active {

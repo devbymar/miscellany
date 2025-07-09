@@ -9,7 +9,7 @@
             </h4>
             <br />
             <div id="containerForBullets"></div>
-            <Swiper direction="vertical" :pagination="{ clickable: true }" :loop="true" :space-between="40"
+            <Swiper direction="vertical" :pagination="{ clickable: true } as any" :loop="true" :space-between="40"
                 :slides-per-view="1.7" @slideChange="onSlideChange"
                 :modules="[Pagination]"
                 class="h-[40rem] max-w-3xl md:h-96" data-aos="fade-up">
@@ -52,9 +52,9 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 const activeIndex = ref(0);
-const updateActiveIndex = (index: number) => {
+/*const updateActiveIndex = (index: number) => {
     activeIndex.value = index;
-}
+}*/
 
 const onSlideChange = (swiper: any) => {
   activeIndex.value = swiper.activeIndex;

@@ -1,15 +1,16 @@
 <script setup lang="ts">
 import NavBar from './NavBar.vue'
 import Hero from './Home.vue'
-import Skills from './Skills.vue'
 import Services from './Services.vue'
 import Projects from './Project.vue'
 import Testimonials from './Testimonials.vue'
 import Contact from './Contact.vue'
 import Footer from './Footer.vue'
-import Home from './Home.vue'
+import Skills from './SkillsComp.vue'
+//import Home from './Home.vue'
 
 import {onMounted} from 'vue'
+import 'aos/dist/aos.css'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 
